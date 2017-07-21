@@ -16,7 +16,11 @@ import states from '../control/states';
 
 import { View,Text } from 'react-vr';
 
-const style = {};
+const style = {
+  app:{
+      layoutOrigin: [0.5, 0.5]
+  }
+};
 class App extends React.Component {
 
   componentDidMount() {
@@ -37,7 +41,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={style.app}>
         <View>
           <Matrix matrix={this.props.matrix} cur={this.props.cur} reset={this.props.reset} />
         </View>

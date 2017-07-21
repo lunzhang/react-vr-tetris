@@ -10,16 +10,14 @@ import { View,Box,Plane,Text } from 'react-vr';
 
 const style = {
   matrix:{
-    transform: [{translate: [0, 0, -45]},{rotateY:-15}],
-    layoutOrigin: [0.5, 0.5]
+    transform: [{translate: [20, -10, -45]}]
   },
   row:{
     flexDirection :'row'
   },
   box:{
     borderWidth: 0.8,
-    borderColor:'white',
-    layoutOrigin: [0.5, 0.5]
+    borderColor:'white'
   },
   block:{
 
