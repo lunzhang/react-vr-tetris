@@ -2,9 +2,27 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import { blockShape } from '../../unit/const';
-import { View } from 'react-vr';
+import { View,Box } from 'react-vr';
 const style = {
+  next:{
+    transform: [{translate: [6, -4, -45]}],
+  },
+  row:{
+    flexDirection :'row'
+  },
+  box:{
+    borderWidth: 0.8,
+    borderColor:'white'
+  },
+  block:{
 
+  },
+  block0:{
+    color:'black'
+  },
+  block1:{
+    color:'grey'
+  }
 };
 const xy = { // 方块在下一个中的坐标
   I: [1, 0],
@@ -51,18 +69,20 @@ export default class Next extends React.Component {
   }
   render() {
     return (
-      <View className={style.next}>
-        {
-          this.state.block.map((arr, k1) => (
-            <View key={k1}>
-              {
-                arr.map((e, k2) => (
-                  <View className={e ? 'c' : ''} key={k2} />
-                ))
-              }
-            </View>
-          ))
-        }
+      <View style={style.next}>
+      {
+        this.state.block.map((row, rowNum) => (
+          <View style={[style.row]} key={rowNum}>
+          {
+            row.map((block, blockNum) => (
+              <View style={[style.box]} key={blockNum}>
+              <Box style={style['block'+block]}/>
+              </View>
+            ))
+          }
+          </View>
+        ))
+      }
       </View>
     );
   }

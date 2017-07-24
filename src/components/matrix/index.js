@@ -10,7 +10,7 @@ import { View,Box,Plane,Text } from 'react-vr';
 
 const style = {
   matrix:{
-    transform: [{translate: [20, -10, -45]}]
+    transform: [{translate: [0, 0, -45]}]
   },
   row:{
     flexDirection :'row'

@@ -4,10 +4,8 @@ import classnames from 'classnames';
 import propTypes from 'prop-types';
 
 import Matrix from '../components/matrix';
-import Number from '../components/number';
 import Next from '../components/next';
 import Pause from '../components/pause';
-import Point from '../components/point';
 import Keyboard from '../components/keyboard';
 
 import { transform, lastRecord, speeds, i18n, lan } from '../unit/const';
@@ -18,7 +16,25 @@ import { View,Text } from 'react-vr';
 
 const style = {
   app:{
-      layoutOrigin: [0.5, 0.5]
+    flexDirection:'column',
+    layoutOrigin:[0.5,0.5]
+  },
+  top:{
+    flexDirection:'row',
+    layoutOrigin:[0,-0.1]
+  },
+  bottom:{
+    layoutOrigin:[0.5,0]
+  },
+  detail:{
+    layoutOrigin:[0,0.45]
+  },
+  text:{
+    transform: [{translate: [0, 0, -90]}],
+    fontSize: 5,
+    color:'red',
+    textAlign: 'center',
+    textAlignVertical: 'center'
   }
 };
 class App extends React.Component {
@@ -42,10 +58,30 @@ class App extends React.Component {
   render() {
     return (
       <View style={style.app}>
-        <View>
+        <View style={style.top}>
           <Matrix matrix={this.props.matrix} cur={this.props.cur} reset={this.props.reset} />
+          <View style={style.detail}>
+            <Text style={style.text}> Score </Text>
+            <Text style={style.text}> {this.props.points} </Text>
+            <Text style={style.text}> Clear Lines </Text>
+            {
+              this.props.cur ?
+              <Text style={style.text}> {this.props.clearLines} </Text> :
+              <Text style={style.text}> {this.props.startLines} </Text>
+            }
+            <Text style={style.text}> Level </Text>
+            {
+              this.props.cur ?
+              <Text style={style.text}> {this.props.speedRun} </Text> :
+              <Text style={style.text}> {this.props.speedStart} </Text>
+            }
+            <Text style={style.text}> Next </Text>
+            <Next data={this.props.next} />
+          </View>
         </View>
-        <Keyboard keyboard={this.props.keyboard} />
+        <View style={style.bottom}>
+          <Keyboard keyboard={this.props.keyboard} />
+        </View>
       </View>
     );
   }

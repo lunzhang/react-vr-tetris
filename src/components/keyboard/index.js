@@ -2,71 +2,72 @@ import React from 'react';
 import Immutable from 'immutable';
 import propTypes from 'prop-types';
 
-import Button from './button';
 import store from '../../store';
 import todo from '../../control/todo';
 import { i18n, lan } from '../../unit/const';
 import { View,Text,Sphere,VrButton } from 'react-vr';
 const style = {
   keyboard:{
-    transform: [{translate: [-45, 45, -90]}]
+    transform: [{translate: [0, 0, -90]}]
   },
   options:{
-    flexDirection: 'row'
+    flexDirection: 'row',
+    transform: [{translate: [7, 0, 0]}]
   },
   p:{
-    borderWidth:0.8,
+    borderWidth:0.5,
     borderColor:'white',
     margin:2,
-    width:13
+    width:10
   },
   pText:{
-    fontSize: 10,
+    fontSize: 5,
     color:'red',
     textAlign: 'center',
     textAlignVertical: 'center'
   },
   m:{
-    borderWidth:0.8,
+    borderWidth:0.5,
     borderColor:'white',
     margin:2,
-    width:13
+    width:10
   },
   mText:{
-    fontSize: 10,
+    fontSize: 5,
     color:'red',
     textAlign: 'center',
     textAlignVertical: 'center'
   },
   r:{
-    borderWidth:0.8,
+    borderWidth:0.5,
     borderColor:'white',
     margin:2,
-    width:13
+    width:10
   },
   rText:{
-    fontSize: 10,
+    fontSize: 5,
     color:'red',
     textAlign: 'center',
     textAlignVertical: 'center'
   },
   arrows:{
-    transform: [{translate: [0, -25, 0]}]
+    transform: [{translate: [15, -10, 0]}],
+    flexDirection: 'row'
   },
   up:{
-    transform: [{translate: [0, 15, 0]}]
+    transform: [{translate: [0, 7, 0]}]
   },
   down:{
-    transform: [{translate: [0, -15, 0]}]
+    transform: [{translate: [0, -7, 0]}]
   },
   left:{
-    transform: [{translate: [-15, 0, 0]}]
+    transform: [{translate: [-7, 0, 0]}]
   },
   right:{
-    transform: [{translate: [15, 0, 0]}]
+    transform: [{translate: [7, 0, 0]}]
   },
   space:{
-    transform: [{translate: [90, -25, 0]}]
+    transform: [{translate: [25, -10, 0]}]
   }
 };
 
@@ -98,20 +99,20 @@ export default class Keyboard extends React.Component {
         </View>
         <View style={style.arrows}>
           <VrButton style={style.up} onButtonPress={()=>todo.rotate.down(store)} onButtonRelease={()=>todo.rotate.up(store)}>
-            <Sphere radius={5} widthSegments={100}/>
+            <Sphere radius={3} widthSegments={100}/>
           </VrButton>
           <VrButton style={style.down} onButtonPress={()=>todo.down.down(store)} onButtonRelease={()=>todo.down.up(store)}>
-            <Sphere radius={5} widthSegments={100}/>
+            <Sphere radius={3} widthSegments={100}/>
           </VrButton>
           <VrButton style={style.left} onButtonPress={()=>todo.left.down(store)} onButtonRelease={()=>todo.left.up(store)}>
-            <Sphere radius={5} widthSegments={100}/>
+            <Sphere radius={3} widthSegments={100}/>
           </VrButton>
           <VrButton style={style.right} onButtonPress={()=>todo.right.down(store)} onButtonRelease={()=>todo.right.up(store)}>
-            <Sphere radius={5} widthSegments={100}/>
+            <Sphere radius={3} widthSegments={100}/>
           </VrButton>
         </View>
         <VrButton style={style.space} onButtonPress={()=>todo.space.down(store)} onButtonRelease={()=>todo.space.up(store)}>
-          <Sphere radius={10} widthSegments={200}/>
+          <Sphere radius={5} widthSegments={100}/>
         </VrButton>
       </View>
     );
