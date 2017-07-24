@@ -1,7 +1,7 @@
 import 'react-native';
 import 'react-vr';
 import React from 'react';
-import Index from '../index.vr.js';
+import Index from '../src/index.vr.js';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
