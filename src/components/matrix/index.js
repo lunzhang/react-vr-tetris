@@ -10,13 +10,13 @@ import { View,Box,Plane,Text } from 'react-vr';
 
 const style = {
   matrix:{
-    transform: [{translate: [0, 0, -45]}]
+    transform: [{translate: [0, -3, -40]}]
   },
   row:{
     flexDirection :'row'
   },
   box:{
-    borderWidth: 0.8,
+    borderWidth: 0.7,
     borderColor:'white'
   },
   block:{
@@ -26,7 +26,10 @@ const style = {
       color:'black'
   },
   block1:{
-      color:'grey'
+      color:'#4CAF50'
+  },
+  block2:{
+    color:'#F44336'
   }
 };
 const t = setTimeout;
@@ -172,9 +175,10 @@ export default class Matrix extends React.Component {
     let cell = [];
     matrix.map((row,rowNum)=>{
         row.map((block,blockNum)=>{
-            cell.push(block);
+            if(block != 0)cell.push(block);
         });
     });
+    //console.log(cell);
     return (
       <View style={style.matrix}>
       {

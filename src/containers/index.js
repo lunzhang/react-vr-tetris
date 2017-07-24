@@ -17,14 +17,14 @@ import { View,Text } from 'react-vr';
 const style = {
   app:{
     flexDirection:'column',
-    layoutOrigin:[0.5,0.5]
+    layoutOrigin:[0.25,0.5]
   },
   top:{
     flexDirection:'row',
     layoutOrigin:[0,-0.1]
   },
   bottom:{
-    layoutOrigin:[0.5,0]
+    layoutOrigin:[0.25,0]
   },
   detail:{
     layoutOrigin:[0,0.45]

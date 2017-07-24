@@ -5,13 +5,13 @@ import { blockShape } from '../../unit/const';
 import { View,Box } from 'react-vr';
 const style = {
   next:{
-    transform: [{translate: [6, -4, -45]}],
+    transform: [{translate: [3.8, -2, -40]}],
   },
   row:{
     flexDirection :'row'
   },
   box:{
-    borderWidth: 0.8,
+    borderWidth: 0.7,
     borderColor:'white'
   },
   block:{
@@ -21,7 +21,10 @@ const style = {
     color:'black'
   },
   block1:{
-    color:'grey'
+    color:'#4CAF50'
+  },
+  block2:{
+    color:'#F44336'
   }
 };
 const xy = { // 方块在下一个中的坐标
